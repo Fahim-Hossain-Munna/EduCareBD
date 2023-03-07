@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{CategoryController, DashboardMannager , FrontendMannageController, PhpQuestionController, QuestionMannageController, StudentCommentController, StudentFeedbackController, StudentRegistrationController};
+use App\Http\Controllers\{CategoryController, DashboardMannager , FrontendMannageController, PhpQuestionController, QueryGeneratorController, QuestionMannageController, StudentCommentController, StudentFeedbackController, StudentRegistrationController};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +22,12 @@ Route::get('/contact',[FrontendMannageController::class , 'contact'])->name('con
 Route::get('/service',[FrontendMannageController::class , 'service'])->name('service');
 Route::get('/service/details/page/{id}',[FrontendMannageController::class , 'service_details'])->name('service.details');
 //FrontendMannageController end
+
+// chat gpt Section start
+Route::get('/write/generate/view',[QueryGeneratorController::class , 'index'])->name('write.generate.view');
+Route::post('/write/generate',[QueryGeneratorController::class , 'index_post'])->name('write.generate');
+// chat gpt Section end
+
 // Student Registration Controller start
 Route::post('/student/registration',[StudentRegistrationController::class , 'student_registration'])->name('student.registration');
 Route::post('/student/login',[StudentRegistrationController::class , 'student_login'])->name('student.login');
